@@ -1,0 +1,1 @@
+Trabalho em andamento para materia de engenharia de software 2, que propoe a automação de uma produção apicola, coletando dados dos apiarios,tanto de produção quanto de saude dos enxames, e disponibilizando em um perfil web.
