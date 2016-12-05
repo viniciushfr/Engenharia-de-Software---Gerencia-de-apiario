@@ -1,1 +1,1 @@
-Trabalho em andamento para materia de engenharia de software 2, que propoe a automaÁ„o de uma produÁ„o apicola, coletando dados dos apiarios,tanto de produÁ„o quanto de saude dos enxames, e disponibilizando em um perfil web.
+Trabalho em andamento para mat√©ria de engenharia de software 2, que prop√µe a automa√ß√£o de uma produ√ß√£o apicola, coletando dados dos api√°rios, tanto de produ√ß√£o quanto de sa√∫de dos enxames, e disponibilizando em um perfil web.
