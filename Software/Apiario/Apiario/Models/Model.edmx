@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ApiarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="idAdministrador" />
+          </Key>
+          <Property Name="idAdministrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cpf" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tipoUsuario" Type="bit" Nullable="false" />
+          <Property Name="telefone" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apiario">
+          <Key>
+            <PropertyRef Name="idApiario" />
+          </Key>
+          <Property Name="idApiario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="localizacao" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="quantasVezes" Type="int" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Atendimento">
+          <Key>
+            <PropertyRef Name="idAtendimento" />
+          </Key>
+          <Property Name="idAtendimento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="assunto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="mensagem" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="situacao" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="dataAtendimento" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caixa">
+          <Key>
+            <PropertyRef Name="idCaixa" />
+          </Key>
+          <Property Name="idCaixa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idApiario" Type="int" Nullable="false" />
+          <Property Name="situacao" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="conexao" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cpf" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="tipoUsuario" Type="bit" Nullable="false" />
+          <Property Name="telefone" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cidade" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idade" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DadosApiario">
+          <Key>
+            <PropertyRef Name="idDados" />
+          </Key>
+          <Property Name="idDados" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idApiario" Type="int" Nullable="false" />
+          <Property Name="temperatura" Type="float" Nullable="false" />
+          <Property Name="umidade" Type="float" Nullable="false" />
+          <Property Name="dataDadosApiario" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DadosCaixa">
+          <Key>
+            <PropertyRef Name="idDadosCaixa" />
+          </Key>
+          <Property Name="idDadosCaixa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCaixa" Type="int" Nullable="false" />
+          <Property Name="peso" Type="float" Nullable="false" />
+          <Property Name="fluxoAbelhas" Type="float" Nullable="false" />
+          <Property Name="dataDadosCaixa" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Apiario__idClien__173876EA">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Apiario" Type="Self.Apiario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Apiario">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Atendimen__idCli__145C0A3F">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Atendimento">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Caixa__idApiario__1CF15040">
+          <End Role="Apiario" Type="Self.Apiario" Multiplicity="1" />
+          <End Role="Caixa" Type="Self.Caixa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apiario">
+              <PropertyRef Name="idApiario" />
+            </Principal>
+            <Dependent Role="Caixa">
+              <PropertyRef Name="idApiario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DadosApia__idApi__1A14E395">
+          <End Role="Apiario" Type="Self.Apiario" Multiplicity="1" />
+          <End Role="DadosApiario" Type="Self.DadosApiario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apiario">
+              <PropertyRef Name="idApiario" />
+            </Principal>
+            <Dependent Role="DadosApiario">
+              <PropertyRef Name="idApiario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DadosCaix__idCai__1FCDBCEB">
+          <End Role="Caixa" Type="Self.Caixa" Multiplicity="1" />
+          <End Role="DadosCaixa" Type="Self.DadosCaixa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caixa">
+              <PropertyRef Name="idCaixa" />
+            </Principal>
+            <Dependent Role="DadosCaixa">
+              <PropertyRef Name="idCaixa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ApiarioModelStoreContainer">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apiario" EntityType="Self.Apiario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Atendimento" EntityType="Self.Atendimento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caixa" EntityType="Self.Caixa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DadosApiario" EntityType="Self.DadosApiario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DadosCaixa" EntityType="Self.DadosCaixa" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Apiario__idClien__173876EA" Association="Self.FK__Apiario__idClien__173876EA">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Apiario" EntitySet="Apiario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Atendimen__idCli__145C0A3F" Association="Self.FK__Atendimen__idCli__145C0A3F">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Atendimento" EntitySet="Atendimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Caixa__idApiario__1CF15040" Association="Self.FK__Caixa__idApiario__1CF15040">
+            <End Role="Apiario" EntitySet="Apiario" />
+            <End Role="Caixa" EntitySet="Caixa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DadosApia__idApi__1A14E395" Association="Self.FK__DadosApia__idApi__1A14E395">
+            <End Role="Apiario" EntitySet="Apiario" />
+            <End Role="DadosApiario" EntitySet="DadosApiario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DadosCaix__idCai__1FCDBCEB" Association="Self.FK__DadosCaix__idCai__1FCDBCEB">
+            <End Role="Caixa" EntitySet="Caixa" />
+            <End Role="DadosCaixa" EntitySet="DadosCaixa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ApiarioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="idAdministrador" />
+          </Key>
+          <Property Name="idAdministrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cpf" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoUsuario" Type="Boolean" Nullable="false" />
+          <Property Name="telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apiario">
+          <Key>
+            <PropertyRef Name="idApiario" />
+          </Key>
+          <Property Name="idApiario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <Property Name="localizacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="quantasVezes" Type="Int32" Nullable="false" />
+          <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Apiario__idClien__173876EA" FromRole="Apiario" ToRole="Cliente" />
+          <NavigationProperty Name="Caixa" Relationship="Self.FK__Caixa__idApiario__1CF15040" FromRole="Apiario" ToRole="Caixa" />
+          <NavigationProperty Name="DadosApiario" Relationship="Self.FK__DadosApia__idApi__1A14E395" FromRole="Apiario" ToRole="DadosApiario" />
+        </EntityType>
+        <EntityType Name="Atendimento">
+          <Key>
+            <PropertyRef Name="idAtendimento" />
+          </Key>
+          <Property Name="idAtendimento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <Property Name="assunto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mensagem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="situacao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dataAtendimento" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Atendimen__idCli__145C0A3F" FromRole="Atendimento" ToRole="Cliente" />
+        </EntityType>
+        <EntityType Name="Caixa">
+          <Key>
+            <PropertyRef Name="idCaixa" />
+          </Key>
+          <Property Name="idCaixa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idApiario" Type="Int32" Nullable="false" />
+          <Property Name="situacao" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="conexao" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Apiario" Relationship="Self.FK__Caixa__idApiario__1CF15040" FromRole="Caixa" ToRole="Apiario" />
+          <NavigationProperty Name="DadosCaixa" Relationship="Self.FK__DadosCaix__idCai__1FCDBCEB" FromRole="Caixa" ToRole="DadosCaixa" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cpf" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoUsuario" Type="Boolean" Nullable="false" />
+          <Property Name="telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idade" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Apiario" Relationship="Self.FK__Apiario__idClien__173876EA" FromRole="Cliente" ToRole="Apiario" />
+          <NavigationProperty Name="Atendimento" Relationship="Self.FK__Atendimen__idCli__145C0A3F" FromRole="Cliente" ToRole="Atendimento" />
+        </EntityType>
+        <EntityType Name="DadosApiario">
+          <Key>
+            <PropertyRef Name="idDados" />
+          </Key>
+          <Property Name="idDados" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idApiario" Type="Int32" Nullable="false" />
+          <Property Name="temperatura" Type="Double" Nullable="false" />
+          <Property Name="umidade" Type="Double" Nullable="false" />
+          <Property Name="dataDadosApiario" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Apiario" Relationship="Self.FK__DadosApia__idApi__1A14E395" FromRole="DadosApiario" ToRole="Apiario" />
+        </EntityType>
+        <EntityType Name="DadosCaixa">
+          <Key>
+            <PropertyRef Name="idDadosCaixa" />
+          </Key>
+          <Property Name="idDadosCaixa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCaixa" Type="Int32" Nullable="false" />
+          <Property Name="peso" Type="Double" Nullable="false" />
+          <Property Name="fluxoAbelhas" Type="Double" Nullable="false" />
+          <Property Name="dataDadosCaixa" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Caixa" Relationship="Self.FK__DadosCaix__idCai__1FCDBCEB" FromRole="DadosCaixa" ToRole="Caixa" />
+        </EntityType>
+        <Association Name="FK__Apiario__idClien__173876EA">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Apiario" Type="Self.Apiario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Apiario">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Caixa__idApiario__1CF15040">
+          <End Role="Apiario" Type="Self.Apiario" Multiplicity="1" />
+          <End Role="Caixa" Type="Self.Caixa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apiario">
+              <PropertyRef Name="idApiario" />
+            </Principal>
+            <Dependent Role="Caixa">
+              <PropertyRef Name="idApiario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DadosApia__idApi__1A14E395">
+          <End Role="Apiario" Type="Self.Apiario" Multiplicity="1" />
+          <End Role="DadosApiario" Type="Self.DadosApiario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Apiario">
+              <PropertyRef Name="idApiario" />
+            </Principal>
+            <Dependent Role="DadosApiario">
+              <PropertyRef Name="idApiario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Atendimen__idCli__145C0A3F">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Atendimento" Type="Self.Atendimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Atendimento">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DadosCaix__idCai__1FCDBCEB">
+          <End Role="Caixa" Type="Self.Caixa" Multiplicity="1" />
+          <End Role="DadosCaixa" Type="Self.DadosCaixa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caixa">
+              <PropertyRef Name="idCaixa" />
+            </Principal>
+            <Dependent Role="DadosCaixa">
+              <PropertyRef Name="idCaixa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ApiarioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+          <EntitySet Name="Apiario" EntityType="Self.Apiario" />
+          <EntitySet Name="Atendimento" EntityType="Self.Atendimento" />
+          <EntitySet Name="Caixa" EntityType="Self.Caixa" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="DadosApiario" EntityType="Self.DadosApiario" />
+          <EntitySet Name="DadosCaixa" EntityType="Self.DadosCaixa" />
+          <AssociationSet Name="FK__Apiario__idClien__173876EA" Association="Self.FK__Apiario__idClien__173876EA">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Apiario" EntitySet="Apiario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Caixa__idApiario__1CF15040" Association="Self.FK__Caixa__idApiario__1CF15040">
+            <End Role="Apiario" EntitySet="Apiario" />
+            <End Role="Caixa" EntitySet="Caixa" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DadosApia__idApi__1A14E395" Association="Self.FK__DadosApia__idApi__1A14E395">
+            <End Role="Apiario" EntitySet="Apiario" />
+            <End Role="DadosApiario" EntitySet="DadosApiario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Atendimen__idCli__145C0A3F" Association="Self.FK__Atendimen__idCli__145C0A3F">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Atendimento" EntitySet="Atendimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DadosCaix__idCai__1FCDBCEB" Association="Self.FK__DadosCaix__idCai__1FCDBCEB">
+            <End Role="Caixa" EntitySet="Caixa" />
+            <End Role="DadosCaixa" EntitySet="DadosCaixa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ApiarioModelStoreContainer" CdmEntityContainer="ApiarioEntities">
+          <EntitySetMapping Name="Administrador">
+            <EntityTypeMapping TypeName="ApiarioModel.Administrador">
+              <MappingFragment StoreEntitySet="Administrador">
+                <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
+                <ScalarProperty Name="nomeUsuario" ColumnName="nomeUsuario" />
+                <ScalarProperty Name="cpf" ColumnName="cpf" />
+                <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apiario">
+            <EntityTypeMapping TypeName="ApiarioModel.Apiario">
+              <MappingFragment StoreEntitySet="Apiario">
+                <ScalarProperty Name="idApiario" ColumnName="idApiario" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="localizacao" ColumnName="localizacao" />
+                <ScalarProperty Name="quantasVezes" ColumnName="quantasVezes" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Atendimento">
+            <EntityTypeMapping TypeName="ApiarioModel.Atendimento">
+              <MappingFragment StoreEntitySet="Atendimento">
+                <ScalarProperty Name="idAtendimento" ColumnName="idAtendimento" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="assunto" ColumnName="assunto" />
+                <ScalarProperty Name="mensagem" ColumnName="mensagem" />
+                <ScalarProperty Name="situacao" ColumnName="situacao" />
+                <ScalarProperty Name="dataAtendimento" ColumnName="dataAtendimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Caixa">
+            <EntityTypeMapping TypeName="ApiarioModel.Caixa">
+              <MappingFragment StoreEntitySet="Caixa">
+                <ScalarProperty Name="idCaixa" ColumnName="idCaixa" />
+                <ScalarProperty Name="idApiario" ColumnName="idApiario" />
+                <ScalarProperty Name="situacao" ColumnName="situacao" />
+                <ScalarProperty Name="conexao" ColumnName="conexao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="ApiarioModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="nomeUsuario" ColumnName="nomeUsuario" />
+                <ScalarProperty Name="cpf" ColumnName="cpf" />
+                <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="idade" ColumnName="idade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DadosApiario">
+            <EntityTypeMapping TypeName="ApiarioModel.DadosApiario">
+              <MappingFragment StoreEntitySet="DadosApiario">
+                <ScalarProperty Name="idDados" ColumnName="idDados" />
+                <ScalarProperty Name="idApiario" ColumnName="idApiario" />
+                <ScalarProperty Name="temperatura" ColumnName="temperatura" />
+                <ScalarProperty Name="umidade" ColumnName="umidade" />
+                <ScalarProperty Name="dataDadosApiario" ColumnName="dataDadosApiario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DadosCaixa">
+            <EntityTypeMapping TypeName="ApiarioModel.DadosCaixa">
+              <MappingFragment StoreEntitySet="DadosCaixa">
+                <ScalarProperty Name="idDadosCaixa" ColumnName="idDadosCaixa" />
+                <ScalarProperty Name="idCaixa" ColumnName="idCaixa" />
+                <ScalarProperty Name="peso" ColumnName="peso" />
+                <ScalarProperty Name="fluxoAbelhas" ColumnName="fluxoAbelhas" />
+                <ScalarProperty Name="dataDadosCaixa" ColumnName="dataDadosCaixa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
