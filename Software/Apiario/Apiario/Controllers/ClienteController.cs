@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Apiario.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,16 @@ namespace Apiario.Controllers
             return View();
         }
 
-        public ActionResult Cadastrar() 
+        public ActionResult Cadastro() 
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar(Cliente cliente) 
+        {
+            Console.Write(cliente);
+            return View("Cadastro");
         }
 
 	}

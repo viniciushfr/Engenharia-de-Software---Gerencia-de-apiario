@@ -1,0 +1,134 @@
+﻿@model Apiario.Models.Cliente
+
+@{
+    ViewBag.Title = "Cadastrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-horizontal" method="post" action="Cadastrar">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Cadastrar Cliente</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="nomeUsuario">Nome Usuário</label>
+            <div class="col-md-5">
+                <input id="nomeUsuario" name="nomeUsuario" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="senha">Senha:</label>
+            <div class="col-md-5">
+                <input id="senha" name="senha" type="password" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="nome">Nome:</label>
+            <div class="col-md-5">
+                <input id="nome" name="nome" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="cpf">CPF:</label>
+            <div class="col-md-5">
+                <input id="cpf" name="cpf" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="email">E-mail:</label>
+            <div class="col-md-5">
+                <input id="email" name="email" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="telefone">Telefone:</label>
+            <div class="col-md-5">
+                <input id="telefone" name="telefone" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="cidade">Cidade:</label>
+            <div class="col-md-5">
+                <input id="cidade" name="cidade" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="estado">Estado:</label>
+            <div class="col-md-5">
+                <select id="estado" name="estado" class="form-control">
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PR">PR</option>
+                    <option value="PB">PB</option>
+                    <option value="PA">PA</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SE">SE</option>
+                    <option value="SP">SP</option>
+                    <option value="TO">TO</option>
+                </select>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="idade">Idade:</label>
+            <div class="col-md-5">
+                <input id="idade" name="idade" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="cadastrar"></label>
+            <div class="col-md-4">
+                <button id="cadastrar" name="cadastrar" class="btn btn-info">Cadastrar</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+
