@@ -11,6 +11,8 @@
           </Key>
           <Property Name="idAdministrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nomeUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="senha" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="cpf" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="tipoUsuario" Type="bit" Nullable="false" />
           <Property Name="telefone" Type="varchar" MaxLength="30" Nullable="false" />
@@ -52,12 +54,14 @@
           </Key>
           <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nomeUsuario" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="cpf" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="senha" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cpf" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="tipoUsuario" Type="bit" Nullable="false" />
           <Property Name="telefone" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="nome" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="cidade" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="cidade" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="idade" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="DadosApiario">
@@ -180,6 +184,8 @@
           </Key>
           <Property Name="idAdministrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomeUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cpf" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tipoUsuario" Type="Boolean" Nullable="false" />
           <Property Name="telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
@@ -227,12 +233,14 @@
           </Key>
           <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nomeUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cpf" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cpf" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tipoUsuario" Type="Boolean" Nullable="false" />
           <Property Name="telefone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cidade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="estado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cidade" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idade" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Apiario" Relationship="Self.FK__Apiario__idClien__173876EA" FromRole="Cliente" ToRole="Apiario" />
           <NavigationProperty Name="Atendimento" Relationship="Self.FK__Atendimen__idCli__145C0A3F" FromRole="Cliente" ToRole="Atendimento" />
@@ -319,7 +327,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ApiarioEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ApiarioEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Administrador" EntityType="Self.Administrador" />
           <EntitySet Name="Apiario" EntityType="Self.Apiario" />
           <EntitySet Name="Atendimento" EntityType="Self.Atendimento" />
@@ -353,12 +361,14 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ApiarioModelStoreContainer" CdmEntityContainer="ApiarioEntities">
+        <EntityContainerMapping StorageEntityContainer="ApiarioModelStoreContainer" CdmEntityContainer="ApiarioEntities1">
           <EntitySetMapping Name="Administrador">
             <EntityTypeMapping TypeName="ApiarioModel.Administrador">
               <MappingFragment StoreEntitySet="Administrador">
                 <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
                 <ScalarProperty Name="nomeUsuario" ColumnName="nomeUsuario" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="cpf" ColumnName="cpf" />
                 <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
                 <ScalarProperty Name="telefone" ColumnName="telefone" />
@@ -404,6 +414,8 @@
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="nomeUsuario" ColumnName="nomeUsuario" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="cpf" ColumnName="cpf" />
                 <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
                 <ScalarProperty Name="telefone" ColumnName="telefone" />

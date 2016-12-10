@@ -16,6 +16,8 @@ namespace Apiario.Models
     {
         public int idAdministrador { get; set; }
         public string nomeUsuario { get; set; }
+        public string senha { get; set; }
+        public string email { get; set; }
         public string cpf { get; set; }
         public bool tipoUsuario { get; set; }
         public string telefone { get; set; }

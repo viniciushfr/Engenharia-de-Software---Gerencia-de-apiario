@@ -13,10 +13,10 @@ namespace Apiario.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ApiarioEntities : DbContext
+    public partial class ApiarioEntities1 : DbContext
     {
-        public ApiarioEntities()
-            : base("name=ApiarioEntities")
+        public ApiarioEntities1()
+            : base("name=ApiarioEntities1")
         {
         }
     
