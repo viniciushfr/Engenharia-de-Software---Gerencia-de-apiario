@@ -1,12 +1,14 @@
 Create Table Cliente (
 	idCliente int identity(1,1),
 	nomeUsuario varchar(100) not null,
-	cpf varchar(20) not null,
+	senha varchar(100) not null,
+	email varchar(255) not null,
+	cpf varchar(14) not null,
 	tipoUsuario  bit not null,
 	telefone varchar(30) not null,
-	nome varchar(100) not null,
-	cidade varchar(100)not null,
-	estado varchar(100)not null,
+	nome varchar(255) not null,
+	cidade varchar(255)not null,
+	estado varchar(255)not null,
 	idade int not null,
 	constraint pkCliente primary key(idCliente)
 );
@@ -14,6 +16,8 @@ Create Table Cliente (
 Create Table Administrador(
 	idAdministrador int identity(1,1),
 	nomeUsuario varchar(100) not null,
+	senha varchar(100) not null,
+	email varchar(255) not null,
 	cpf varchar(20) not null,
 	tipoUsuario  bit not null,
 	telefone varchar(30) not null,
