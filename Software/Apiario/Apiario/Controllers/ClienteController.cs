@@ -1,4 +1,5 @@
-﻿using Apiario.Models;
+﻿using Apiario.Context;
+using Apiario.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Apiario.Controllers
 {
     public class ClienteController : Controller
     {
-        //
-        // GET: /Cliente/
+
+        private ClienteContext dbCliente = new ClienteContext();
         public ActionResult Index()
         {
             return View();
@@ -24,6 +25,8 @@ namespace Apiario.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Cliente cliente) 
         {
+            dbCliente.Clientes.Add(cliente);
+            dbCliente.SaveChanges();
             return View();
         }
 
