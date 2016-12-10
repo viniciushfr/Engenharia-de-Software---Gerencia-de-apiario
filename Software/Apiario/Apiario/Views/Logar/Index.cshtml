@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Logar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<form class="form-horizontal" method="post" action="Index">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Logar</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="nomeUsuario">Nome Usuário:</label>
+            <div class="col-md-5">
+                <input id="nomeUsuario" name="nomeUsuario" type="text" class="form-control input-md" required maxlength="100">
+
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="senha">Senha:</label>
+            <div class="col-md-5">
+                <input id="senha" name="senha" type="password" class="form-control input-md" required maxlength="100">
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="logar"></label>
+            <div class="col-md-4">
+                <button id="logar" name="logar" class="btn btn-success">Logar</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
