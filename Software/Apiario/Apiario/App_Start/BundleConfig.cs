@@ -22,7 +22,8 @@ namespace Apiario
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/font-awesome.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
             "~/Scripts/jquery.inputmask/inputmask.js",
