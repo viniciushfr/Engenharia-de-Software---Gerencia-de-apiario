@@ -16,7 +16,7 @@ namespace Apiario.Controllers
             return View();
         }
 
-        public ActionResult Cadastro() 
+        public ActionResult Cadastrar() 
         {
             return View();
         }
@@ -24,8 +24,7 @@ namespace Apiario.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Cliente cliente) 
         {
-            Console.Write(cliente);
-            return View("Cadastro");
+            return View();
         }
 
 	}
