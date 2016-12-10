@@ -133,3 +133,11 @@
 </form>
 
 
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#telefone").inputmask("mask", { "mask": "(99) 9999-99999" });
+            $("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+        });
+    </script>
+}
