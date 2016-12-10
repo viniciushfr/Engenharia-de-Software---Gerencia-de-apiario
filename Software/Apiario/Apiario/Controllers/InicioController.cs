@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Apiario.Controllers
 {
-    public class HomeController : Controller
+    public class InicioController : Controller
     {
         public ActionResult Index()
         {
