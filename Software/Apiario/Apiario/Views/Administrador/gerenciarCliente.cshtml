@@ -73,9 +73,8 @@
                 @Html.DisplayFor(modelItem => item.idade)
             </td>
             <td>
-                @Html.ActionLink("Editar", "EditarCliente", new { id = item.idCliente }) |
-                
-                @Html.ActionLink("Deletar", "DeletarCliente", new { id = item.idCliente })
+                <a href="/Administrador/EditarCliente/@item.idCliente" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a href="/Administrador/DeletarCliente/@item.idCliente" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </td>
         </tr>
     }
