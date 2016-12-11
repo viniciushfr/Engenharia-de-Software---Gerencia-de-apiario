@@ -12,6 +12,7 @@ namespace Apiario.Controllers
     {
 
         private ClienteContext dbCliente = new ClienteContext();
+        private ApiarioContext dbApiario = new ApiarioContext();
         public ActionResult Index()
         {
             if (Session["clienteLogadoID"] == null || Session["adminLogadoID"] == null || Session["adminLogadoID"] != null)
@@ -41,6 +42,19 @@ namespace Apiario.Controllers
 
         public ActionResult CadastrarApiario()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CadastrarApiario(String localizacao, String quantasCaixas, String quantasVezes, String hora)
+        {
+            Models.Apiario apiario = new Models.Apiario();
+            apiario.localizacao = localizacao;
+            apiario.quantasVezes = Int32.Parse(quantasVezes);
+            apiario.hora = TimeSpan.Parse(hora);
+            apiario.idCliente = Cliente.instance.idCliente;
+            dbApiario.Apiarios.Add(apiario);
+            dbApiario.SaveChanges();
 
             return View();
         }
