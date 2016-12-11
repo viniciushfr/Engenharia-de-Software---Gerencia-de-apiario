@@ -133,6 +133,15 @@
     </fieldset>
 </form>
 
+@{
+    if (@ViewData["Mensagem"] != null)
+    {
+        <div class="alert alert-success alert-dismissable">
+            <a href="../Logar" class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong>Sucesso!</strong> @ViewData["Mensagem"]
+        </div>
+    }
+}
 
 @section Scripts {
     <script>

@@ -14,6 +14,10 @@ namespace Apiario.Controllers
         private ClienteContext dbCliente = new ClienteContext();
         public ActionResult Index()
         {
+            if (Session["clienteLogadoID"] == null || Session["adminLogadoID"] == null || Session["adminLogadoID"] != null)
+            {
+                return RedirectToAction("../Logar");
+            }
             return View();
         }
 
@@ -25,8 +29,12 @@ namespace Apiario.Controllers
         [HttpPost]
         public ActionResult Cadastrar(Cliente cliente) 
         {
-            dbCliente.Clientes.Add(cliente);
-            dbCliente.SaveChanges();
+            if(ModelState.IsValid)
+            {
+                dbCliente.Clientes.Add(cliente);
+                dbCliente.SaveChanges();
+                ViewData["Mensagem"] = "Cadastrado com sucesso!";
+            }
             return View();
         }
 
