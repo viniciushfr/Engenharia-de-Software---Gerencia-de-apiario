@@ -38,5 +38,12 @@ namespace Apiario.Controllers
             return View();
         }
 
+
+        public ActionResult CadastrarApiario()
+        {
+
+            return View();
+        }
+
 	}
 }

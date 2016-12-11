@@ -122,6 +122,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\AdministradorContext.cs" />
+    <Compile Include="Context\ApiarioContext.cs" />
     <Compile Include="Context\ClienteContext.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
@@ -250,6 +251,7 @@
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Administrador\GerenciarCliente.cshtml" />
     <Content Include="Views\Administrador\EditarCliente.cshtml" />
+    <Content Include="Views\Cliente\CadastrarApiario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
