@@ -17,5 +17,12 @@ namespace Apiario.Controllers
             }
             return View();
         }
+
+        public ActionResult gerenciarCliente() 
+        {
+
+            return View();
+        }
+
 	}
 }
