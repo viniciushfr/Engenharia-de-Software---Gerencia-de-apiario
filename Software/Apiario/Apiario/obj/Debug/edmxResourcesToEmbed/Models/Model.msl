@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ApiarioModelStoreContainer" CdmEntityContainer="ApiarioEntities1">
+    <EntitySetMapping Name="Administrador">
+      <EntityTypeMapping TypeName="ApiarioModel.Administrador">
+        <MappingFragment StoreEntitySet="Administrador">
+          <ScalarProperty Name="idAdministrador" ColumnName="idAdministrador" />
+          <ScalarProperty Name="nomeUsuario" ColumnName="nomeUsuario" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Apiario">
+      <EntityTypeMapping TypeName="ApiarioModel.Apiario">
+        <MappingFragment StoreEntitySet="Apiario">
+          <ScalarProperty Name="idApiario" ColumnName="idApiario" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="localizacao" ColumnName="localizacao" />
+          <ScalarProperty Name="quantasVezes" ColumnName="quantasVezes" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Atendimento">
+      <EntityTypeMapping TypeName="ApiarioModel.Atendimento">
+        <MappingFragment StoreEntitySet="Atendimento">
+          <ScalarProperty Name="idAtendimento" ColumnName="idAtendimento" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="assunto" ColumnName="assunto" />
+          <ScalarProperty Name="mensagem" ColumnName="mensagem" />
+          <ScalarProperty Name="situacao" ColumnName="situacao" />
+          <ScalarProperty Name="dataAtendimento" ColumnName="dataAtendimento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Caixa">
+      <EntityTypeMapping TypeName="ApiarioModel.Caixa">
+        <MappingFragment StoreEntitySet="Caixa">
+          <ScalarProperty Name="idCaixa" ColumnName="idCaixa" />
+          <ScalarProperty Name="idApiario" ColumnName="idApiario" />
+          <ScalarProperty Name="situacao" ColumnName="situacao" />
+          <ScalarProperty Name="conexao" ColumnName="conexao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="ApiarioModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="nomeUsuario" ColumnName="nomeUsuario" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idade" ColumnName="idade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DadosApiario">
+      <EntityTypeMapping TypeName="ApiarioModel.DadosApiario">
+        <MappingFragment StoreEntitySet="DadosApiario">
+          <ScalarProperty Name="idDados" ColumnName="idDados" />
+          <ScalarProperty Name="idApiario" ColumnName="idApiario" />
+          <ScalarProperty Name="temperatura" ColumnName="temperatura" />
+          <ScalarProperty Name="umidade" ColumnName="umidade" />
+          <ScalarProperty Name="dataDadosApiario" ColumnName="dataDadosApiario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DadosCaixa">
+      <EntityTypeMapping TypeName="ApiarioModel.DadosCaixa">
+        <MappingFragment StoreEntitySet="DadosCaixa">
+          <ScalarProperty Name="idDadosCaixa" ColumnName="idDadosCaixa" />
+          <ScalarProperty Name="idCaixa" ColumnName="idCaixa" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="fluxoAbelhas" ColumnName="fluxoAbelhas" />
+          <ScalarProperty Name="dataDadosCaixa" ColumnName="dataDadosCaixa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

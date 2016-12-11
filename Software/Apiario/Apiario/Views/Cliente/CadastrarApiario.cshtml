@@ -1,0 +1,47 @@
+﻿@model Apiario.Models.Apiario
+@{
+    ViewBag.Title = "Cadastrar Apiario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<form class="form-horizontal" method="post" action="CadastrarApiario">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Cadastrar Apiário</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="localizacao">Localização:</label>
+            <div class="col-md-5">
+                <input id="localizacao" name="localizacao" type="text" class="form-control input-md" required maxlength="100">
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="quantasVezes">Quantidade de Vezes:</label>
+            <div class="col-md-5">
+                <input id="quantasVezes" name="quantasVezes" type="number" class="form-control input-md" required>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="hora">Hora:</label>
+            <div class="col-md-5">
+                <input id="hora" name="hora" type="time" class="form-control input-md" required>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="cadastrar"></label>
+            <div class="col-md-4">
+                <button id="cadastrar" name="cadastrar" class="btn btn-info"><i class="fa fa-floppy-o" aria-hidden="true"></i> Cadastrar Apiário</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
