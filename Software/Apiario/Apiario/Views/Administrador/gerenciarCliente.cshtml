@@ -1,8 +1,86 @@
-﻿
+﻿@model IEnumerable<Apiario.Models.Cliente>
 @{
-    ViewBag.Title = "gerenciarCliente";
+    ViewBag.Title = "Gerenciar Cliente";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>gerenciarCliente</h2>
+<h2>Gerenciar Cliente</h2>
+
+
+
+<table class="table table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomeUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.senha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cpf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idade)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpf)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idade)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "EditarCliente", new { id = item.idCliente }) |
+                
+                @Html.ActionLink("Deletar", "DeletarCliente", new { id = item.idCliente })
+            </td>
+        </tr>
+    }
+
+
+</table>
+
 

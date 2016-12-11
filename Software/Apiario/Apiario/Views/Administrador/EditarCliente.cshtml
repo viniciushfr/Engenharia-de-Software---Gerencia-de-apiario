@@ -1,0 +1,127 @@
+﻿@model Apiario.Models.Cliente
+
+
+@{
+    ViewBag.Title = "Editar Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Editar Cliente</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.idCliente)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nomeUsuario, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nomeUsuario)
+                @Html.ValidationMessageFor(model => model.nomeUsuario)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.senha, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.senha)
+                @Html.ValidationMessageFor(model => model.senha)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cpf, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cpf)
+                @Html.ValidationMessageFor(model => model.cpf)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.telefone, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.telefone)
+                @Html.ValidationMessageFor(model => model.telefone)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nome, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nome)
+                @Html.ValidationMessageFor(model => model.nome)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cidade, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cidade)
+                @Html.ValidationMessageFor(model => model.cidade)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.estado, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.estado)
+                @Html.ValidationMessageFor(model => model.estado)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idade, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.idade)
+                @Html.ValidationMessageFor(model => model.idade)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<div>
+    <a href="../GerenciarCliente" class="btn btn-info" role="button">Voltar</a>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#telefone").inputmask("mask", { "mask": "(99) 9999-99999" });
+            $("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

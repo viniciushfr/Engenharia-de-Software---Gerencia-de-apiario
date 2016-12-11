@@ -32,6 +32,11 @@ namespace Apiario
             "~/Scripts/jquery.inputmask/inputmask.date.extensions.js",
             "~/Scripts/jquery.inputmask/inputmask.numeric.extensions.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            "~/Scripts/jquery.validate.min.js",
+            "~/Scripts/jquery.validate.unobtrusive.min.js",
+            "~/Scripts/jquery.validate-vsdoc.js"));
+
         }
     }
 }
