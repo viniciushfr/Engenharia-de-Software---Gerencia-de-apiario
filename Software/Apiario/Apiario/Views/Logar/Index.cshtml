@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br />
-<form class="form-horizontal" method="post" action="Index">
+<form class="form-horizontal" method="post">
     <fieldset>
 
         <!-- Form Name -->
@@ -37,4 +37,14 @@
 
     </fieldset>
 </form>
+
+@{
+    if(@ViewData["Mensagem"] != null)
+    {
+          <div class="alert alert-danger alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>Erro!</strong> @ViewData["Mensagem"]
+         </div>
+    }
+}
 

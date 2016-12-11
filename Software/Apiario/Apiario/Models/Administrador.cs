@@ -14,6 +14,20 @@ namespace Apiario.Models
     
     public partial class Administrador
     {
+
+        public static Administrador instance;
+        public static Administrador Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Administrador();
+                }
+                return instance;
+            }
+        }
+
         public int idAdministrador { get; set; }
         public string nomeUsuario { get; set; }
         public string senha { get; set; }

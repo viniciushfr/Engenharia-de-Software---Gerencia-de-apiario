@@ -11,6 +11,10 @@ namespace Apiario.Controllers
        
         public ActionResult Index()
         {
+            if (Session["adminLogadoID"] == null || Session["clienteLogadoID"] == null || Session["clienteLogadoID"] != null) 
+            {
+                return RedirectToAction("../Logar");
+            }
             return View();
         }
 	}

@@ -14,12 +14,26 @@ namespace Apiario.Models
     
     public partial class Cliente
     {
+
+        public static Cliente instance;
+
+        public static Cliente Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Cliente();
+                }
+                return instance;
+            }    
+        }
+
         public Cliente()
         {
             this.Apiario = new HashSet<Apiario>();
             this.Atendimento = new HashSet<Atendimento>();
         }
-    
         public int idCliente { get; set; }
         public string nomeUsuario { get; set; }
         public string senha { get; set; }
