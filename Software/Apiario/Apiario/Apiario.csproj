@@ -123,8 +123,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\AdministradorContext.cs" />
     <Compile Include="Context\ApiarioContext.cs" />
+    <Compile Include="Context\AtendimentoContext.cs" />
     <Compile Include="Context\CaixaContext.cs" />
     <Compile Include="Context\ClienteContext.cs" />
+    <Compile Include="Context\DadosApiarioContext.cs" />
+    <Compile Include="Context\DadosCaixaContext.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
