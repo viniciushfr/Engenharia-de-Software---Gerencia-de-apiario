@@ -92,8 +92,24 @@ namespace Apiario.Controllers
             }
             return View(apiario);
         }
-       
 
+        public ActionResult Cadastrar() 
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Cadastrar(Administrador admin)
+        {
+            if (ModelState.IsValid)
+            {
+                admin.tipoUsuario = true;
+                dbAdmin.Administrador.Add(admin);
+                dbAdmin.SaveChanges();
+                ViewData["Mensagem"] = "Cadastrado com sucesso!";
+            }
+            return View();
+        }
 
 	}
 }

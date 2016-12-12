@@ -1,0 +1,102 @@
+﻿@model Apiario.Models.Administrador
+
+@{
+    ViewBag.Title = "Cadastrar Administrador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<form class="form-horizontal" method="post" action="Cadastrar">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Cadastrar Administrador</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="nomeUsuario">Nome Usuário:</label>
+            <div class="col-md-5">
+                <input id="nomeUsuario" name="nomeUsuario" type="text" class="form-control input-md" required maxlength="100">
+
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="senha">Senha:</label>
+            <div class="col-md-5">
+                <input id="senha" name="senha" type="password" class="form-control input-md" required maxlength="100">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="nome">Nome:</label>
+            <div class="col-md-5">
+                <input id="nome" name="nome" type="text" class="form-control input-md" required maxlength="255">
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="cpf">CPF:</label>
+            <div class="col-md-5">
+                <input id="cpf" name="cpf" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="email">E-mail:</label>
+            <div class="col-md-5">
+                <input id="email" name="email" type="email" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="telefone">Telefone:</label>
+            <div class="col-md-5">
+                <input id="telefone" name="telefone" type="text" class="form-control input-md" required>
+
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="cadastrar"></label>
+            <div class="col-md-4">
+                <button id="cadastrar" name="cadastrar" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Cadastrar</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+
+<div>
+    <a href="../Administrador" class="btn btn-info" role="button">Voltar</a>
+</div>
+
+@{
+    if (@ViewData["Mensagem"] != null)
+    {
+        <div class="alert alert-success alert-dismissable">
+            <a class="close" data-dismiss="alert" aria-label="close">×</a>
+            <strong>Sucesso!</strong> @ViewData["Mensagem"]
+        </div>
+    }
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#telefone").inputmask("mask", { "mask": "(99) 9999-99999" });
+            $("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+        });
+    </script>
+}
