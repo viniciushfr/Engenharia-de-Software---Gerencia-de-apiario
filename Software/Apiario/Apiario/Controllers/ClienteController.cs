@@ -52,7 +52,7 @@ namespace Apiario.Controllers
             apiario.localizacao = localizacao;
             apiario.quantasVezes = Int32.Parse(quantasVezes);
             apiario.hora = TimeSpan.Parse(hora);
-            apiario.idCliente = Cliente.instance.idCliente;
+            apiario.idCliente = Int32.Parse(Session["clienteLogadoID"].ToString());
             dbApiario.Apiarios.Add(apiario);
             dbApiario.SaveChanges();
 
