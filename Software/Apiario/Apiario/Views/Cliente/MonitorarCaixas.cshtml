@@ -1,16 +1,18 @@
 ﻿@model IEnumerable<Apiario.Models.DadosCaixa>
     @{
-        ViewBag.Title = "MonitorarCaixas";
+        ViewBag.Title = "Monitorar Caixas";
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
 
-    <h2>MonitorarCaixas</h2>
-<table class="table table-hover table-responsive ">
-    <thead>
+    <h2>Monitorar Caixas</h2>
+
+<table class="table table-responsive ">
+    <tr>
         <th>Data</th>
         <th>Peso</th>
         <th>Fluxo Abelhas/h</th>
-    </thead>
+        <th></th>
+    </tr>
     @foreach (var dados in Model)
     {
         <tr>
@@ -21,3 +23,7 @@
 
     }
 </table>
+
+<div>
+    <a href="VisualizarCaixas?idApiario=@ViewBag.idApiario" class="btn btn-info" role="button">Voltar</a>
+</div>
