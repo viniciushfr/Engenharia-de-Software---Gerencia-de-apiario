@@ -72,13 +72,11 @@ namespace Apiario.Controllers
                 ViewData["Mensagem"] = "Apiário cadastrado com sucesso!";
             }
 
-
-                return View();
+            return View();
         }
 
         public ActionResult RemoverApiario()
         {
-
             return View();
         }
 
@@ -86,23 +84,28 @@ namespace Apiario.Controllers
         {
             IEnumerable<Models.DadosApiario> dadosApiario = dbDadosApiario.DadosApiario.Where(x => x.idApiario == idApiario);
             ViewBag.idApiario = idApiario;
+
             return View(dadosApiario);
         }
+
         public ActionResult VisualizarCaixas(int idApiario)
         {
             ViewBag.idApiario = idApiario;
             IEnumerable<Models.Caixa> caixas = dbCaixa.Caixas.Where(x => x.idApiario == idApiario);
+
             return View(caixas);
         }
+
         public ActionResult MonitorarCaixas(int idCaixa)
         {
             Caixa caixa = dbCaixa.Caixas.Find(idCaixa);
             ViewBag.idApiario = caixa.idApiario;
             IEnumerable<Models.DadosCaixa> dadosCaixa = dbDadosCaixa.DadosCaixa.Where(x => x.idCaixa == idCaixa);
+
             return View(dadosCaixa);
         }
-        public ActionResult VisualizarApiario()
 
+        public ActionResult VisualizarApiario()
         {
             int id = Int32.Parse(Session["clienteLogadoID"].ToString());
             IEnumerable<Models.Apiario> apiario = dbApiario.Apiarios.Where(x => x.idCliente ==id);
