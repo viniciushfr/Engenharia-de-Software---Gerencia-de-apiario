@@ -260,6 +260,7 @@
     <Content Include="Views\Administrador\GerenciarApiario.cshtml" />
     <Content Include="Views\Administrador\EditarApiario.cshtml" />
     <Content Include="Views\Administrador\Cadastrar.cshtml" />
+    <Content Include="Views\Cliente\Monitoramento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

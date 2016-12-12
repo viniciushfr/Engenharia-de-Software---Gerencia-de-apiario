@@ -14,6 +14,8 @@ namespace Apiario.Controllers
         private ClienteContext dbCliente = new ClienteContext();
         private ApiarioContext dbApiario = new ApiarioContext();
         private CaixaContext dbCaixa = new CaixaContext();
+        private DadosApiarioContext dbDadosApiario = new DadosApiarioContext();
+        private DadosCaixaContext dbDadosCaixa = new DadosCaixaContext();
         public ActionResult Index()
         {
             if (Session["clienteLogadoID"] == null && Session["adminLogadoID"] == null || Session["adminLogadoID"] != null)
@@ -84,7 +86,11 @@ namespace Apiario.Controllers
             return View();
         }
 
+        public ActionResult Monitoramento() 
+        {
 
+            return View();
+        }
 
 	}
 }
