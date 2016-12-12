@@ -261,6 +261,7 @@
     <Content Include="Views\Administrador\EditarApiario.cshtml" />
     <Content Include="Views\Administrador\Cadastrar.cshtml" />
     <Content Include="Views\Cliente\Monitoramento.cshtml" />
+    <Content Include="Views\Cliente\VizualizarApiario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

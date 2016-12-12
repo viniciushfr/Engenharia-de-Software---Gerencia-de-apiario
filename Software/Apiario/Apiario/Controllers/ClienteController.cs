@@ -86,10 +86,19 @@ namespace Apiario.Controllers
             return View();
         }
 
-        public ActionResult Monitoramento() 
+        public ActionResult Monitoramento(int idApiario) 
         {
+            IEnumerable<Models.DadosApiario> dadosApiario = dbDadosApiario.DadosApiario.Where(x => x.idApiario == idApiario);
+            return View(dadosApiario);
+        }
 
-            return View();
+        public ActionResult VizualizarApiario()
+
+        {
+            int id = Int32.Parse(Session["clienteLogadoID"].ToString());
+            IEnumerable<Models.Apiario> apiario = dbApiario.Apiarios.Where(x => x.idCliente ==id);
+
+            return View(apiario.ToList());
         }
 
 	}
