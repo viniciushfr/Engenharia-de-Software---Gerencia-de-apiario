@@ -17,10 +17,6 @@ namespace Apiario.Controllers
         private ApiarioContext dbApiario = new ApiarioContext();
         public ActionResult Index()
         {
-            if (Session["adminLogadoID"] == null && Session["clienteLogadoID"] == null || Session["clienteLogadoID"] != null)
-            {
-                return RedirectToAction("../Logar");
-            }
             return View();
         }
 

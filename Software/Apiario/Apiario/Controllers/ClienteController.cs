@@ -18,10 +18,6 @@ namespace Apiario.Controllers
         private DadosCaixaContext dbDadosCaixa = new DadosCaixaContext();
         public ActionResult Index()
         {
-            if (Session["clienteLogadoID"] == null && Session["adminLogadoID"] == null || Session["adminLogadoID"] != null)
-            {
-                return RedirectToAction("../Logar");
-            }
             return View();
         }
 
@@ -105,7 +101,7 @@ namespace Apiario.Controllers
             IEnumerable<Models.DadosCaixa> dadosCaixa = dbDadosCaixa.DadosCaixa.Where(x => x.idCaixa == idCaixa);
             return View(dadosCaixa);
         }
-        public ActionResult VizualizarApiario()
+        public ActionResult VisualizarApiario()
 
         {
             int id = Int32.Parse(Session["clienteLogadoID"].ToString());

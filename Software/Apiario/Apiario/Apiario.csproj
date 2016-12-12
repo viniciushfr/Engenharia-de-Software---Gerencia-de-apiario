@@ -261,9 +261,11 @@
     <Content Include="Views\Administrador\EditarApiario.cshtml" />
     <Content Include="Views\Administrador\Cadastrar.cshtml" />
     <Content Include="Views\Cliente\Monitoramento.cshtml" />
-    <Content Include="Views\Cliente\VizualizarApiario.cshtml" />
+    <Content Include="Views\Cliente\VisualizarApiario.cshtml" />
     <Content Include="Views\Cliente\VisualizarCaixas.cshtml" />
     <Content Include="Views\Cliente\MonitorarCaixas.cshtml" />
+    <Content Include="Views\Shared\_LayoutCliente.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
