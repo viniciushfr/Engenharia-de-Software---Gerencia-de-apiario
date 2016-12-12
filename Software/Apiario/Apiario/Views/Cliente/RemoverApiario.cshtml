@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Apiario.Models.Apiario>
+
 @{
     ViewBag.Title = "Remover Apiário";
     Layout = "~/Views/Shared/_LayoutCliente.cshtml";
@@ -6,3 +7,38 @@
 
 <h2>Remover Apiário</h2>
 
+<table class="table table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.localizacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantasVezes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.localizacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantasVezes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora)
+            </td>
+            <td>
+                <a href="DeletarApiario?idApiario=@item.idApiario" class="btn btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    }
+
+
+</table>
