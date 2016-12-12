@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Apiario.Models.Apiario>
+@{
+    ViewBag.Title = "Gerenciar Apiário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gerenciar Apiário</h2>
+
+<table class="table table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.localizacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantasVezes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.localizacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantasVezes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora)
+            </td>
+            <td>
+                <a href="/Administrador/EditarApiario/@item.idApiario" class="btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <a href="/Administrador/DeletarApiario/@item.idApiario" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    }
+
+
+</table>

@@ -253,6 +253,9 @@
     <Content Include="Views\Administrador\GerenciarCliente.cshtml" />
     <Content Include="Views\Administrador\EditarCliente.cshtml" />
     <Content Include="Views\Cliente\CadastrarApiario.cshtml" />
+    <Content Include="Views\Cliente\RemoverApiario.cshtml" />
+    <Content Include="Views\Administrador\GerenciarApiario.cshtml" />
+    <Content Include="Views\Administrador\EditarApiario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

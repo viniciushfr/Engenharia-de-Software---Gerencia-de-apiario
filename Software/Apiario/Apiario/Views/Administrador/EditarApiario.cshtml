@@ -1,0 +1,55 @@
+﻿@model Apiario.Models.Apiario
+@{
+    ViewBag.Title = "Editar Apiário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar Apiário</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.idApiario)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.localizacao, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.localizacao)
+                @Html.ValidationMessageFor(model => model.localizacao)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.quantasVezes, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.quantasVezes)
+                @Html.ValidationMessageFor(model => model.quantasVezes)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.hora, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.hora)
+                @Html.ValidationMessageFor(model => model.hora)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<div>
+    <a href="../GerenciarApiario" class="btn btn-info" role="button">Voltar</a>
+</div>

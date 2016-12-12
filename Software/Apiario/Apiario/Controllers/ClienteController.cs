@@ -78,5 +78,13 @@ namespace Apiario.Controllers
                 return View();
         }
 
+        public ActionResult RemoverApiario()
+        {
+
+            return View();
+        }
+
+
+
 	}
 }

@@ -14,6 +14,7 @@ namespace Apiario.Controllers
     {
         private ClienteContext dbClientes = new ClienteContext();
         private AdministradorContext dbAdmin = new AdministradorContext();
+        private ApiarioContext dbApiario = new ApiarioContext();
         public ActionResult Index()
         {
             if (Session["adminLogadoID"] == null && Session["clienteLogadoID"] == null || Session["clienteLogadoID"] != null)
@@ -25,7 +26,6 @@ namespace Apiario.Controllers
 
         public ActionResult GerenciarCliente() 
         {
-
             return View(dbClientes.Clientes.ToList());
         }
 
@@ -55,6 +55,44 @@ namespace Apiario.Controllers
             }
             return View(cliente);
         }
+
+
+        public ActionResult GerenciarApiario()
+        {
+            return View(dbApiario.Apiarios.ToList());
+        }
+
+        public ActionResult EditarApiario(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Models.Apiario apiario = dbApiario.Apiarios.Find(id);
+            if (apiario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(apiario);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditarApiario([Bind(Include = "idApiario,idCliente,localizacao,quantasVezes,hora")] Models.Apiario apiario)
+        {
+            Models.Apiario aux = dbApiario.Apiarios.Find(apiario.idApiario);
+            aux.localizacao = apiario.localizacao;
+            aux.quantasVezes = apiario.quantasVezes;
+            aux.hora = apiario.hora;
+
+            if (ModelState.IsValid)
+            {
+                dbApiario.SaveChanges();
+                return RedirectToAction("GerenciarApiario");
+            }
+            return View(apiario);
+        }
+       
 
 
 	}
