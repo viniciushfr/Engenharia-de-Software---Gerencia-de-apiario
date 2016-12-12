@@ -116,18 +116,10 @@ namespace Apiario.Controllers
 
             return View(apiario.ToList());
         }
+
         [HttpGet]
         public ActionResult DeletarApiario(int idApiario)
         {
-            dbDadosApiario.DadosApiario.RemoveRange(dbDadosApiario.DadosApiario.Where(x => x.idApiario == idApiario));
-            dbDadosApiario.SaveChanges();
-            IEnumerable<Caixa> caixas = dbCaixa.Caixas.Where(x => x.idApiario == idApiario);
-            foreach(var caixa in caixas){
-                dbDadosCaixa.DadosCaixa.RemoveRange(dbDadosCaixa.DadosCaixa.Where(x => x.idCaixa == caixa.idCaixa));
-                dbDadosCaixa.SaveChanges();
-            }
-            dbCaixa.Caixas.RemoveRange(caixas);
-            dbCaixa.SaveChanges();
             dbApiario.Apiarios.Remove(dbApiario.Apiarios.Find(idApiario));
             dbApiario.SaveChanges();
 

@@ -15,6 +15,9 @@ namespace Apiario.Controllers
         private ClienteContext dbClientes = new ClienteContext();
         private AdministradorContext dbAdmin = new AdministradorContext();
         private ApiarioContext dbApiario = new ApiarioContext();
+        private CaixaContext dbCaixa = new CaixaContext();
+        private DadosApiarioContext dbDadosApiario = new DadosApiarioContext();
+        private DadosCaixaContext dbDadosCaixa = new DadosCaixaContext();
         public ActionResult Index()
         {
             return View();
@@ -105,6 +108,16 @@ namespace Apiario.Controllers
                 ViewData["Mensagem"] = "Cadastrado com sucesso!";
             }
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult DeletarCliente(int idCliente) 
+        {
+
+            dbClientes.Clientes.Remove(dbClientes.Clientes.Find(idCliente));
+            dbClientes.SaveChanges();
+
+            return RedirectToAction("GerenciarCliente");
         }
 
 	}

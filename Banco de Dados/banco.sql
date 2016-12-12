@@ -33,7 +33,7 @@ Create Table Atendimento(
 	situacao varchar(100)not null,
 	dataAtendimento datetime not null,
 	constraint pkAtendimento primary key(idAtendimento),
-	foreign key(idCliente) references Cliente(idCliente)
+	foreign key(idCliente) references Cliente(idCliente) ON DELETE CASCADE
 );
 
 Create Table Apiario(
@@ -43,7 +43,7 @@ Create Table Apiario(
 	quantasVezes int not null,
 	hora time not null,
 	constraint pkApiario primary key(idApiario),
-	foreign key(idCliente) references Cliente(idCliente)
+	foreign key(idCliente) references Cliente(idCliente) ON DELETE CASCADE
 );
 
 Create Table DadosApiario(
@@ -53,7 +53,7 @@ Create Table DadosApiario(
 	umidade float not null,
 	dataDadosApiario datetime not null,
 	constraint pkDadosApiario primary key(idDados),
-	foreign key(idApiario) references Apiario(idApiario)
+	foreign key(idApiario) references Apiario(idApiario) ON DELETE CASCADE
 );
 
 Create Table Caixa(
@@ -62,7 +62,7 @@ Create Table Caixa(
 	situacao varchar(255) not null,
 	conexao bit not null,
 	constraint pkCaixa primary key(idCaixa),
-	foreign key(idApiario) references Apiario(idApiario)	
+	foreign key(idApiario) references Apiario(idApiario) ON DELETE CASCADE
 );
 
 Create Table DadosCaixa(
@@ -72,5 +72,5 @@ Create Table DadosCaixa(
 	fluxoAbelhas float not null,
 	dataDadosCaixa datetime not null,
 	constraint pkDadosCaixa primary key(idDadosCaixa),
-	foreign key(idCaixa) references Caixa(idCaixa)
+	foreign key(idCaixa) references Caixa(idCaixa) ON DELETE CASCADE
 );
