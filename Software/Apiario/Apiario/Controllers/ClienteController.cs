@@ -89,9 +89,19 @@ namespace Apiario.Controllers
         public ActionResult Monitoramento(int idApiario) 
         {
             IEnumerable<Models.DadosApiario> dadosApiario = dbDadosApiario.DadosApiario.Where(x => x.idApiario == idApiario);
+            ViewBag.idApiario = idApiario;
             return View(dadosApiario);
         }
-
+        public ActionResult VisualizarCaixas(int idApiario)
+        {
+            IEnumerable<Models.Caixa> caixas = dbCaixa.Caixas.Where(x => x.idApiario == idApiario);
+            return View(caixas);
+        }
+        public ActionResult MonitorarCaixas(int idCaixa)
+        {
+            IEnumerable<Models.DadosCaixa> dadosCaixa = dbDadosCaixa.DadosCaixa.Where(x => x.idCaixa == idCaixa);
+            return View(dadosCaixa);
+        }
         public ActionResult VizualizarApiario()
 
         {
