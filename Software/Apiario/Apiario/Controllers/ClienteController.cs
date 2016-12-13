@@ -126,6 +126,12 @@ namespace Apiario.Controllers
             return RedirectToAction("RemoverApiario");
         }
 
+        public ActionResult Deslogar() 
+        {
+            Session["clienteLogadoID"] = null;
+            return RedirectToAction("../Logar");
+        }
+
 
 	}
 }

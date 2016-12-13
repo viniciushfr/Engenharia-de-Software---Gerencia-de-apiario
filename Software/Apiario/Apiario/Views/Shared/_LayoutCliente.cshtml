@@ -1,6 +1,6 @@
 ﻿@if(Session["clienteLogadoID"] == null && Session["adminLogadoID"] == null || Session["adminLogadoID"] != null)
 {
-    Response.Redirect("../Logar");
+    Response.Redirect("Logar");
 }
 <!DOCTYPE html>
 <html>
@@ -28,6 +28,10 @@
                     <li>@Html.ActionLink("Visualizar Apiário", "VisualizarApiario", "Cliente")</li>
                     <li>@Html.ActionLink("Remover Apiário", "RemoverApiario", "Cliente")</li>
                     <li>@Html.ActionLink("Cadastrar Apiário", "CadastrarApiario", "Cliente")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a>@Session["clienteLogadoID"]</a></li>
+                    <li>@Html.ActionLink("Deslogar", "Deslogar", "Cliente")</li>
                 </ul>
             </div>
         </div>
