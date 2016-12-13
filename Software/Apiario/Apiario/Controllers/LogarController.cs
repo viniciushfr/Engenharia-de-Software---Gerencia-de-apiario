@@ -34,12 +34,14 @@ namespace Apiario.Controllers
                 else 
                 {
                     Session["adminLogadoID"] = admin.idAdministrador.ToString();
+                    Session["adminLogadoNome"] = admin.nome;
                     return RedirectToAction("../Administrador");
                 }
             }
             else 
             {
                 Session["clienteLogadoID"] = cliente.idCliente.ToString();
+                Session["clienteLogadoNome"] = cliente.nome;
                 return RedirectToAction("../Cliente");
             }
 

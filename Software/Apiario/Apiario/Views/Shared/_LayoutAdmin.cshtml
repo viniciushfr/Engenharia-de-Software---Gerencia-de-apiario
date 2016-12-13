@@ -29,6 +29,10 @@
                     <li>@Html.ActionLink("Gerenciar Apiário", "GerenciarApiario", "Administrador")</li>
                     <li>@Html.ActionLink("Gerenciar Cliente", "GerenciarCliente", "Administrador")</li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a>Bem Vindo: @Session["adminLogadoNome"]</a></li>
+                    <li>@Html.ActionLink("Deslogar", "Deslogar", "Administrador")</li>
+                </ul>
             </div>
         </div>
     </div>
