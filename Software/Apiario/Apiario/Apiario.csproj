@@ -130,6 +130,7 @@
     <Compile Include="Context\DadosCaixaContext.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ColetorDadosController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\LogarController.cs" />
     <Compile Include="Global.asax.cs">
@@ -266,6 +267,8 @@
     <Content Include="Views\Cliente\MonitorarCaixas.cshtml" />
     <Content Include="Views\Shared\_LayoutCliente.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\ColetorDados\DadosApiario.cshtml" />
+    <Content Include="Views\ColetorDados\DadosCaixa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
